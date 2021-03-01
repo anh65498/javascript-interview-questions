@@ -1021,23 +1021,23 @@ Good luck with your interview 😊
 
 27. ### What are closures
 
-    A closure is the combination of a function and the lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function’s variables. The closure has three scope chains
+    A closure is a function that make uses of variables defined in outer functions that have previously returned. For example,
+    ```javascript
+    function outer(){
+      let start = "Closure are";
+      return function inner() {
+         return start + "awesome";
+      }
+    ```
+    When we call outer(), the result will be the inner(). when we call outer()(), it returns "Closure are awesome"
+    
+    The closure has three scope chains
     1. Own scope where variables defined between its curly brackets
     2. Outer function’s variables
     3. Global variables
     Let's take an example of closure concept,
 
-    ```javascript
-    function Welcome(name){
-      var greetingInfo = function(message){
-       console.log(message+' '+name);
-      }
-    return greetingInfo();
-    }
-    var myFunction = Welcome('John');
-    myFunction('Welcome '); //Output: Welcome John
-    myFunction('Hello Mr.'); //output: Hello Mr.John
-    ```
+
 
     As per the above code, the inner function(greetingInfo) has access to the variables in the outer function scope(Welcome) even after the outer function has returned.
 
